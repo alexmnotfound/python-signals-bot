@@ -13,30 +13,31 @@ def main():
         sendMsg(msg='== Initiating ==')
         print('Defining variables...\n')
 
-        # To exec just for one hour
+        # To exec just for one day
         runtime = dt.datetime.now().day
         endtime = runtime + 1
 
-        # Defined parameters
-        hourlyAlert = dt.datetime.now().hour
-        values = dict()  # Empty Dict for future data
+        # Define parameters
+        hourlyAlert = dt.datetime.now().hour    # I'm alive alert
+        values = dict()                         # Empty Dict for future data
 
-        tickers = sh.checkSheet()  # Tuple of tickers to check
+        tickers = sh.checkSheet()               # Tuple of tickers to check
 
-        timeframes = ('1M', '1w')  # Tuple of timeframes to check
-        pivots = 1  # Quantity of pivots to check (current & prevs)
-        tolerance = 0.3  # Tolerance in price (percentage)
-        waitingTime = 15  # Minutes of rest between signals
-        wait = 60 * waitingTime  # Convertion of minutes to seconds
+        timeframes = ('1M', '1w')               # Tuple of timeframes to check
+        pivots = 1                              # Quantity of pivots to check (current & prevs)
+        tolerance = 0.3                         # Tolerance in price (percentage)
+        waitingTime = 15                        # Minutes of rest between signals
+        wait = 60 * waitingTime                 # Convertion of minutes to seconds
 
+        # Send msg with parameters to control
         parameters = f'Tickers: {tickers}\n' \
                      f'Timeframes: {timeframes}\n' \
                      f'Pivots: {pivots}\n'
-        print(parameters)
+        #print(parameters)
         sendMsg(msg=parameters)
 
         # Creating dataframes' dictionaries with values to check for each timeframe
-        print('Creating Dictionaries..\n')
+        # print('Creating Dictionaries..\n')
         sendMsg(msg='Creating Dictionaries..')
 
         # Creating excel that will contain dataframes to control.
@@ -62,7 +63,7 @@ def main():
 
         # Saving excel document
         writer.save()
-        print('Value Dictionaries created...')
+        #print('Value Dictionaries created...')
         sendMsg(msg='Value Dictionaries created..')
 
         # Exec script just for one day
@@ -132,9 +133,10 @@ def main():
                         values[ticker[0]][timeframe][1] += 1
         sendMsg(msg='...Ending Program...')
     except Exception as e:
-        sendMsg(ID=telegramGroupID, msg=f'Lite. Me apagué por algún misterioso motivo: {e}')
+        sendMsg(ID=telegramGroupID, msg=f'Me apagué por algún misterioso motivo: {e}')
+
 
 if __name__ == '__main__':
-    #sendMsg(ID=telegramGroupID, msg='Gluten Morgen')
+    #sendMsg(ID=telegramGroupID, msg='Initiating bot')
     main()
 

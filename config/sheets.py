@@ -7,7 +7,7 @@ ANTES DE EJECUTAR:
    pip install --upgrade google-api-python-client`
 3. Definir las variables necesarias
     Renombrar el .json descargado a "credentials.json"
-    Tener ubicado el archivo token.pickle en la misma carpeta
+    Tener ubicado el archivo token.pickle en la misma carpeta (ruta local)
 
 
 TODO: Habilitar los Scopes correspondientes (ver que nivel queremos dar)
@@ -25,6 +25,7 @@ from google_auth_oauthlib.flow import InstalledAppFlow
 from google.auth.transport.requests import Request
 from googleapiclient import discovery
 
+# Ruta local de ubicación de archivos
 path = 'C:/Users/Matias.MSI/PycharmProjects/Fawkes.lite/src/'
 
 def checkSheet(sheetRange = 'Watchlist!A:Z'):

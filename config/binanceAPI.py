@@ -17,9 +17,9 @@ def historicData(symbol, interval='1d', startTime=None, endTime=None, limit=1000
         Hours: 1h, 2h, 4h
         Days: 1d, 3d
         Month: 1M
-    :param startTime:
-    :param endTime:
-    :param limit:
+    :param startTime: time in ms
+    :param endTime: time in ms
+    :param limit: row limits (1000 default)
     :return: DataFrame with OHLC price history
     """
 
@@ -54,7 +54,7 @@ def lastPrice(ticker):
     Getting last price of ticker in Binance Api
 
     :param ticker: ticker (BTCUSDT, ETHUSDT, etc..)
-    :return:
+    :return: price value (float)
     """
 
     data = historicData(ticker, interval='1d', limit=1)
