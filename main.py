@@ -1,3 +1,14 @@
+"""
+Signal Bot calculating SIMPLE PIVOTE POINTS and RSI
+In this case, it calculates Monthly & Weekly pivotes and 15 min RSI with 30 & 70 limits.
+
+If is close to a Pivot point, considering a tolerance (rtol), and RSI is below 30 or above 70, the signal is triggered.
+
+It takes data from Google Sheets API and delivers signal through Telegram API
+
+@author: alexmnotfound
+"""
+
 import datetime as dt
 import pandas as pd
 import config.binanceAPI as bp
