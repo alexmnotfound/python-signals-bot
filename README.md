@@ -14,6 +14,8 @@ python-telegram-bot
 binance
 python-binance
 
-google-api-python-client`
+google-api-python-client
 google_auth_oauthlib
 google-api-python-client
+
+==================================================
