@@ -2,6 +2,8 @@
 config/auth.py
 token.pickle
 credentials.json
+try.py
+pivotes_multiples.xlsx
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
